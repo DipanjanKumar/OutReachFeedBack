@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BED37CA1-4373-468F-ADAE-67E78706F15F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OutReachDataAccessLayer</RootNamespace>
+    <AssemblyName>OutReachDataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\OutReachServiceLayer\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\OutReachServiceLayer\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBContext\GenericDBContext.cs" />
+    <Compile Include="Generic Repository\GenericRepository.cs" />
+    <Compile Include="Generic Repository\IGenericRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\ExceptionLogger.cs" />
+    <Compile Include="Models\FeedbackQuestion.cs" />
+    <Compile Include="Models\MainMenu.cs" />
+    <Compile Include="Models\NotAttendedVolunteer.cs" />
+    <Compile Include="Models\NotAttendedVolunteerFeedback.cs" />
+    <Compile Include="Models\RegisteredVolunteerFeedback.cs" />
+    <Compile Include="Models\RegisteredVolunteer.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoleMenu.cs" />
+    <Compile Include="Models\SubMenu.cs" />
+    <Compile Include="Models\UnRegisteredVolunteer.cs" />
+    <Compile Include="Models\UnRegisteredVolunteerFeedback.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\ExceptionRepository.cs" />
+    <Compile Include="Repository\FeedBackQuestionRepository.cs" />
+    <Compile Include="Repository\NotAttendedVolunteerFeedbackRepository.cs" />
+    <Compile Include="Repository\NotAttendedVolunteerRepository.cs" />
+    <Compile Include="Repository\RegisteredVolunteerFeedbackRepository.cs" />
+    <Compile Include="Repository\RegisteredVolunteerRepository.cs" />
+    <Compile Include="Repository\RoleMenuRepository.cs" />
+    <Compile Include="Repository\RoleRepository.cs" />
+    <Compile Include="Repository\SubMenuRepository.cs" />
+    <Compile Include="Repository\UnRegisteredVolunteerFeedbackRepository.cs" />
+    <Compile Include="Repository\UnRegisteredVolunteerRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
