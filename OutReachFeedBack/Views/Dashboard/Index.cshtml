@@ -1,0 +1,98 @@
+﻿@model OutReachFeedBack.Models.DashboardDTO
+@{
+   
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="row" style="padding-top:20px">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <b>Choose Location</b>
+            <select name="location" id="location"
+                    class="input form-control selecto" style="width: 100% !important; text-align: center;border:1px solid #0094ff">
+                <option value="" selected="selected" style="padding:3px">Select Option</option>
+                @foreach (var item in Model.LocationList)
+                {
+                    <option value=@item>@item</option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <b>Choose Event</b>
+            <b style="color:red">*</b>
+            <select name="event" id="event" class="input form-control selecto" onchange="EventChange()" style="width: 100% !important; text-align: center;border:1px solid #0094ff">
+                <option value="" selected="selected" style="padding:3px">Select Option</option>
+                @foreach (var item in Model.EventwithID)
+                {
+                    <option value=@item.Key>@item.Value</option>
+                }
+            </select>
+            <span style="color:red" id="err"></span>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-top:10px">
+            <button type="submit" class="btn btn-success btn-lg" value="Submit" onclick="sub();" style="width: 100% !important">
+                Download Excel
+            </button>
+        </div>
+    </div>
+    <div class="row" style="padding-top:20px">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <span style="color:red" id="noData"></span>
+        </div>
+        </div>
+    </div>
+    <script>
+        var modalDialog = $("<div class='modalBlock'></div>");
+        function sub() {
+            if ($("#event").val() != '') {
+                $.ajax({
+                    url: "/Dashboard/DownloadExcel",
+                    contentType: "application/x-www-form-urlencoded",
+                    type: "GET",
+                    datatype: "json",
+                    data: { "eventID": $("#event").val() },
+                    success: function (url) {
+                        if (url != '') {
+                            var hiddenIFrameID = 'hiddenDownloader';
+                            iframe = document.getElementById(hiddenIFrameID);
+                            if (iframe === null) {
+                                iframe = document.createElement('iframe');
+                                iframe.id = hiddenIFrameID;
+                                iframe.style.display = 'none';
+                                document.body.appendChild(iframe);
+                            }
+                            iframe.src = url;
+                        }
+                        else {
+                            $("#noData").text('No feedback data present for selected event.');
+                        }
+                    },
+                    beforeSend: function () {
+                        $(modalDialog).show();
+                        $(modalDialog).appendTo("body");
+                    },
+                    complete: function () {
+                        $(modalDialog).hide();
+                        $(modalDialog).remove();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                        $(modalDialog).hide();
+                        $(modalDialog).remove();
+                    }
+                });
+            }
+            else {
+                $("#err").text('Please select an event');
+            }
+        }
+        function EventChange() {
+            $("#err").text('');
+            $("#noData").text('');
+        }
+    </script>
+

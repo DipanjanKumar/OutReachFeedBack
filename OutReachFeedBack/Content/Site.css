@@ -1,0 +1,52 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    width: auto;
+}
+.TextCenter{
+    text-align:center;
+    vertical-align:middle;
+    line-height:50px;
+
+}
+.modalBlock {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    background-image: url('/Content/GIF/287.GIF');
+    background-repeat: no-repeat;
+    z-index: 9999;
+    background-position: 50% 50%;
+    opacity: 0.5;
+}
+
+img {
+    width: 75px;
+    outline: 0px none;
+    border-radius: 40px;
+    border: 3px solid #BADA55;
+    cursor: pointer;
+}

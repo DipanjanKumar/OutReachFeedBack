@@ -1,0 +1,87 @@
+﻿@model OutReachFeedBack.Models.RegisteredVolunteerFeedbackDTO
+@{
+    ViewBag.Title = "Outreach Feedback";
+    Layout = "~/Views/Shared/FeedbackLayout.cshtml";
+}
+@using (Html.BeginForm("RegisteredFeedback", "FeedBack", FormMethod.Post, new { @id = "regform" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="jumbotron">
+        <div class="row" style="text-align:center;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:50px">
+                <h4><span style="vertical-align:middle;">Feedback for Event: @Model.EventName, Dated @Model.EventDate</span></h4>
+            </div>
+        </div>
+        <div class="row" style="padding-top:20px">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <b>Q1: Rate Event</b>
+                <b style="color:red">*</b><br /><br />
+                <img id="green-icon" class="icon green" src="~/img/veryhappy.png">
+                <img id="blue-icon" class="icon blue" src="~/img/happy.png">
+                <img id="yellow-icon" class="icon yellow" src="~/img/okay.png">
+                <img id="orange-icon" class="icon orange" src="~/img/Unhappy.png">
+                <img id="red-icon" class="icon red" src="~/img/angry.png">
+                <script src="~/Scripts/smiley.js"></script>
+            </div>
+        </div>
+        <div class="row" style="padding-top:20px">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <b>Q2: What did you like about this volunteering activity</b><br /><br />
+                <textarea name="question2" rows="4" cols="70" id="question2">
+
+        </textarea>
+            </div>
+        </div>
+        <div class="row" style="padding-top:20px">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <b>Q3: What can be improved for this volunteering activity</b><br /><br />
+                <textarea name="question3" rows="4" cols="70" id="question3">
+
+        </textarea>
+
+            </div>
+        </div>
+        <div class="row" id="DivMsg">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <span><b id="rating"></b></span><br />
+                <span style="color:red"><b id="msg"></b></span>
+            </div>
+
+        </div>
+        <div class="row" style="padding-top:20px">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <button type="submit" class="btn btn-success btn-lg" value="Submit" style="width: 100% !important">
+                    Submit
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <input type="hidden" name="EmployeeID" id="EmployeeID" value=@Model.EmployeeID />
+        <input type="hidden" name="EventId" id="EventId" value=@Model.EventId />
+        <input type="hidden" name="EventName" id="EventName" value=@Model.EventName />
+        <input type="hidden" name="EventDate" id="EventDate" value=@Model.EventDate />
+        <input type="hidden" name="Id" value="0" />
+        <input type="hidden" name="question1" id="question1" value=""/>
+        <input id="QuestionCount" name="QuestionCount" type="hidden" value=@ViewBag.QuestionCount>
+    </div>
+}
+
+
