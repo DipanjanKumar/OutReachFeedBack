@@ -1,0 +1,42 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/OutReachFeedBack/bin
+/.vs/OutReachFeedBack/v15/Server/sqlite3
+/OutReachFeedBack/obj/Debug
+/packages
+/.vs/OutReachFeedBack/v15
+/.vs/config
+/OutReachFeedBack/obj/Release
+/OutReachFeedBack/Properties/PublishProfiles
+/OutReachFeedBack/packages
+/OutReachFeedBack/ExcelReports/EventSummary_1st Dec PM-Christmas fair to save a school swimming pool.xlsx
+/OutReachFeedBack/ExcelReports/EventSummary_Bags of Joy Distribution.xlsx
+/.vs
+/OutReachBusinessLayer/bin
+/OutReachBusinessLayer/.vs/OutReachBusinessLayer/v15/Server/sqlite3
+/OutReachBusinessLayer/obj
+/OutReachDataAccessLayer/.vs/OutReachDataAccessLayer/v15/Server/sqlite3
+/OutReachDataAccessLayer/bin
+/OutReachDataAccessLayer/obj
+/OutReachDTO/bin/Release
+/OutReachDTO/bin/Debug
+/OutReachDTO/obj
+/OutReachServiceLayer/bin
+/OutReachServiceLayer/obj
+/OutReachServiceLayer/packages
+/OutReachServiceLayer/Properties/PublishProfiles
+/OutReachServiceLayer/.vs/OutReachServiceLayer/v15
+/OutReachDataAccessLayer/.vs/OutReachDataAccessLayer/v15/.suo
+/OutReachBusinessLayer/.vs/OutReachBusinessLayer/v15/.suo
+/OutReachDataAccessLayer.Tests/bin/Debug
+/OutReachDataAccessLayer.Tests/obj/Debug
+/HackFSEBackEndPublish/bin
+/HackFSEBackEndPublish/docker
+/HackFSEFrontEndPublish/bin
+/OutReachBusinessLayer.PerformanceTests/bin/Debug
+/OutReachBusinessLayer.PerformanceTests/obj/Debug
+/OutReachDataAccessLayer.Tests/obj/Release
+/OutReachServiceLayer/docker
+/TestResults

@@ -5,13 +5,28 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachFeedBackWeb", "OutReachFeedBack\OutReachFeedBackWeb.csproj", "{D18B1F66-AEFF-4514-BBBD-341181FFCB2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachBusinessLayer", "..\711876-Hackathon-FeedBackManagement-BackEnd\OutReachBusinessLayer\OutReachBusinessLayer.csproj", "{8C2FEF24-37E8-45F3-9BAF-44FB86C11557}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachBusinessLayer", "OutReachBusinessLayer\OutReachBusinessLayer.csproj", "{8C2FEF24-37E8-45F3-9BAF-44FB86C11557}"
+	ProjectSection(ProjectDependencies) = postProject
+		{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22} = {98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}
+		{BED37CA1-4373-468F-ADAE-67E78706F15F} = {BED37CA1-4373-468F-ADAE-67E78706F15F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachDataAccessLayer", "..\711876-Hackathon-FeedBackManagement-BackEnd\OutReachDataAccessLayer\OutReachDataAccessLayer.csproj", "{BED37CA1-4373-468F-ADAE-67E78706F15F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachDataAccessLayer", "OutReachDataAccessLayer\OutReachDataAccessLayer.csproj", "{BED37CA1-4373-468F-ADAE-67E78706F15F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachDTO", "..\711876-Hackathon-FeedBackManagement-BackEnd\OutReachDTO\OutReachDTO.csproj", "{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachDataAccessLayer.Tests", "OutReachDataAccessLayer.Tests\OutReachDataAccessLayer.Tests.csproj", "{5D554C11-97CF-4204-A949-DCA1A463626F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BED37CA1-4373-468F-ADAE-67E78706F15F} = {BED37CA1-4373-468F-ADAE-67E78706F15F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachServiceLayer", "..\711876-Hackathon-FeedBackManagement-BackEnd\OutReachServiceLayer\OutReachServiceLayer.csproj", "{31CC9FB6-CA96-4467-8AF9-FDF3DCF2ED8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachDTO", "OutReachDTO\OutReachDTO.csproj", "{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachServiceLayer", "OutReachServiceLayer\OutReachServiceLayer.csproj", "{31CC9FB6-CA96-4467-8AF9-FDF3DCF2ED8B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C2FEF24-37E8-45F3-9BAF-44FB86C11557} = {8C2FEF24-37E8-45F3-9BAF-44FB86C11557}
+		{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22} = {98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutReachBusinessLayer.PerformanceTests", "OutReachBusinessLayer.PerformanceTests\OutReachBusinessLayer.PerformanceTests.csproj", "{8212CFDD-EDC2-43B4-96E6-31DA40C3C639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +46,10 @@ Global
 		{BED37CA1-4373-468F-ADAE-67E78706F15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BED37CA1-4373-468F-ADAE-67E78706F15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BED37CA1-4373-468F-ADAE-67E78706F15F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D554C11-97CF-4204-A949-DCA1A463626F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D554C11-97CF-4204-A949-DCA1A463626F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D554C11-97CF-4204-A949-DCA1A463626F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D554C11-97CF-4204-A949-DCA1A463626F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C66838-AEBA-4E2D-8F0D-5D652D7C1B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +58,10 @@ Global
 		{31CC9FB6-CA96-4467-8AF9-FDF3DCF2ED8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31CC9FB6-CA96-4467-8AF9-FDF3DCF2ED8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31CC9FB6-CA96-4467-8AF9-FDF3DCF2ED8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8212CFDD-EDC2-43B4-96E6-31DA40C3C639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8212CFDD-EDC2-43B4-96E6-31DA40C3C639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8212CFDD-EDC2-43B4-96E6-31DA40C3C639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8212CFDD-EDC2-43B4-96E6-31DA40C3C639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

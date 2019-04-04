@@ -1,0 +1,52 @@
+﻿@model IEnumerable<OutReachFeedBack.Models.UserMenuDTO>
+    
+
+    <div class="container">
+        <div >
+            <ul class="nav navbar-nav">
+                @if (Model.Count() > 0)
+                {
+
+
+                    var groupByMenu = Model.GroupBy(x => x.MainMenuName).OrderByDescending(t => t.Key).ToList();
+
+                    foreach (var MenuList in groupByMenu)
+                    {
+                        if (MenuList.Count() > 1)
+                        {
+                            <li class="dropdown">
+                                <a class="navbar-brand" data-toggle="dropdown" href="#">@MenuList.Key<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    @foreach (var SubMenuList in MenuList)
+                                    {
+                                        <li><a href="/@SubMenuList.ControllerName/@SubMenuList.ActionName">@SubMenuList.SubMenuName</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink(MenuList.Key, "Index", "Dashboard", null, new { @class = "navbar-brand" })
+                            </li>
+                        }
+
+                    }
+                }
+
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Logout", "LogOff", "Home", null, new { @class = "navbar-brand" })</li>
+
+            </ul>
+        </div>
+        
+        
+
+    </div>
+

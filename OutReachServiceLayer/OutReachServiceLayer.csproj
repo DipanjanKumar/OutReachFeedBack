@@ -56,7 +56,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\711876-Hackathon-FeedBackManagement-FrontEnd\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\HackFSE_FMS\711876-Hackathon-FeedBackManagement-BackEnd\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="OutReachBusinessLayer">
       <HintPath>..\OutReachBusinessLayer\bin\Debug\OutReachBusinessLayer.dll</HintPath>

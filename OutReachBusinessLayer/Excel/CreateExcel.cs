@@ -116,45 +116,53 @@ namespace OutReachBusinessLayer.Excel
                 throw ex;
             }
         }
-        private static Cell InsertCellInWorksheet(string columnName, uint rowIndex, WorksheetPart worksheetPart)
+        private Cell InsertCellInWorksheet(string columnName, uint rowIndex, WorksheetPart worksheetPart)
         {
-            Worksheet worksheet = worksheetPart.Worksheet;
-            SheetData sheetData = worksheet.GetFirstChild<SheetData>();
-            string cellReference = columnName + rowIndex;
-            Row row;
-            if (sheetData.Elements<Row>().Where(r => r.RowIndex == rowIndex).Count() != 0)
+            try
             {
-                row = sheetData.Elements<Row>().Where(r => r.RowIndex == rowIndex).First();
-            }
-            else
-            {
-                row = new Row() { RowIndex = rowIndex };
-                sheetData.Append(row);
-            }
-            if (row.Elements<Cell>().Where(c => c.CellReference.Value == columnName + rowIndex).Count() > 0)
-            {
-                return row.Elements<Cell>().Where(c => c.CellReference.Value == cellReference).First();
-            }
-            else
-            {
-                Cell refCell = null;
-                foreach (Cell cell in row.Elements<Cell>())
+                Worksheet worksheet = worksheetPart.Worksheet;
+                SheetData sheetData = worksheet.GetFirstChild<SheetData>();
+                string cellReference = columnName + rowIndex;
+                Row row;
+                if (sheetData.Elements<Row>().Where(r => r.RowIndex == rowIndex).Count() != 0)
                 {
-                    if (cell.CellReference.Value.Length == cellReference.Length)
+                    row = sheetData.Elements<Row>().Where(r => r.RowIndex == rowIndex).First();
+                }
+                else
+                {
+                    row = new Row() { RowIndex = rowIndex };
+                    sheetData.Append(row);
+                }
+                if (row.Elements<Cell>().Where(c => c.CellReference.Value == columnName + rowIndex).Count() > 0)
+                {
+                    return row.Elements<Cell>().Where(c => c.CellReference.Value == cellReference).First();
+                }
+                else
+                {
+                    Cell refCell = null;
+                    foreach (Cell cell in row.Elements<Cell>())
                     {
-                        if (string.Compare(cell.CellReference.Value, cellReference, true) > 0)
+                        if (cell.CellReference.Value.Length == cellReference.Length)
                         {
-                            refCell = cell;
-                            break;
+                            if (string.Compare(cell.CellReference.Value, cellReference, true) > 0)
+                            {
+                                refCell = cell;
+                                break;
+                            }
                         }
                     }
-                }
-                Cell newCell = new Cell() { CellReference = cellReference };
-                row.InsertBefore(newCell, refCell);
+                    Cell newCell = new Cell() { CellReference = cellReference };
+                    row.InsertBefore(newCell, refCell);
 
-                worksheet.Save();
-                return newCell;
+                    worksheet.Save();
+                    return newCell;
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+          
         }        
         private int InsertSharedStringItem(WorkbookPart wbPart, string value)
         {
